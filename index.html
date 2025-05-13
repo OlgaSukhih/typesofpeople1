@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Neighbours – Speaking Challenge</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      padding: 20px;
+      color: #ffcc00;
+      background-color: #2c2c2c;
+    }
+    .top-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .gallery-item {
+      width: 180px;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+    .gallery-item p {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 1.05em;
+      color: #ffcc00;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    .side-image {
+      width: 180px;
+      text-align: center;
+    }
+    .side-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+    .side-image p {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 1.05em;
+      color: #ffcc00;
+    }
+    .question-card {
+      width: 420px;
+      padding: 20px;
+      background-color: #2c2c2c;
+      border-left: 6px solid #ffcc00;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .question-text {
+      font-size: 1.1em;
+      color: #f0f0f0;
+      margin-bottom: 16px;
+    }
+    .prompt-text {
+      font-family: Arial, sans-serif;
+      color: #e0e0e0;
+      font-size: 0.95em;
+      font-style: italic;
+      line-height: 1.4;
+      text-align: left;
+      background-color: #2c2c2c;
+      border-radius: 8px;
+    }
+    .question-buttons {
+      margin-top: 16px;
+    }
+    .question-buttons button {
+      background-color: #ffcc00;
+      color: #1e1e1e;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎭 My Neighbours – Speaking Challenge</h1>
+
+<div class="top-gallery">
+  <div class="gallery-item"><img src="images/adrenaline_junkie.png" alt="Adrenaline Junkie"><p>Adrenaline Junkie</p></div>
+  <div class="gallery-item"><img src="images/homebody1.png" alt="Homebody"><p>Homebody</p></div>
+  <div class="gallery-item"><img src="images/couch_potato.png" alt="Couch Potato"><p>Couch Potato</p></div>
+  <div class="gallery-item"><img src="images/culture_vulture.png" alt="Culture Vulture"><p>Culture Vulture</p></div>
+  <div class="gallery-item"><img src="images/social_butterfly.png" alt="Social Butterfly"><p>Social Butterfly</p></div>
+  <div class="gallery-item"><img src="images/foodie_baker.png" alt="Foodie / Baker"><p>Foodie / Baker</p></div>
+  <div class="gallery-item"><img src="images/foodie.png" alt="Foodie"><p>Foodie</p></div>
+</div>
+
+<div class="bottom-row">
+  <div class="side-image">
+    <img src="images/party_animal.png" alt="Party Animal">
+    <p>Party Animal</p>
+  </div>
+  <div class="question-card">
+    <div class="question-text" id="question">Who would thrive in a fast-paced, high-pressure corporate job?</div>
+    <div class="prompt-text">
+      If I had to choose, I’d say... because they tend to...<br><br>
+      This person strikes me as someone who would thrive in this situation because...<br><br>
+      Their personality suggests they’d handle this better than others.<br><br>
+      They’ve got the kind of temperament that would make this work well for them.
+    </div>
+    <div class="question-buttons">
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+  </div>
+  <div class="side-image">
+    <img src="images/dabbler.png" alt="Dabbler">
+    <p>Dabbler / Jack-of-all-Trades</p>
+  </div>
+</div>
+
+<script>
+  const questions = [
+    "Who would thrive in a fast-paced, high-pressure corporate job?",
+    "Who would be happiest working completely alone — and why?",
+    "Who would burn out within six months at a high-stress startup?",
+    "Who would climb the corporate ladder by building connections, not skills?",
+    "Who would always say yes to extra tasks, even when overwhelmed?",
+    "Who would leave a well-paid job to pursue something more meaningful?",
+    "Who would need constant novelty in their work to stay engaged?",
+    "Who would prioritize flexibility over stability in their career?",
+    "Who would take a sabbatical every few years just to recharge?",
+    "Who would stay in one company for 30 years — and be totally fine with that?",
+    "Who would do everything at the last minute — but still deliver good results?",
+    "Who would spend more time customizing their workspace than actually working?",
+    "Who would be the most creative during a brainstorming session?",
+    "Who would always finish projects… but never start them without a push?",
+    "Who would turn their hobby into a business — and succeed?",
+    "Who would dominate the conversation in meetings — whether useful or not?",
+    "Who would quietly hold the whole team together without much recognition?",
+    "Who would volunteer to organize the office party — and overdo it?",
+    "Who would be the worst person to sit next to in an open-plan office?",
+    "Who would make the best mentor — and who the worst?",
+    "Who would thrive in a remote-first, fully async international company?",
+    "Who would struggle with rigid office routines and fixed schedules?",
+    "Who would be the first to suggest a work retreat… and plan it in Bali?",
+    "Who would succeed in a diplomatic role — and who would offend someone on day one?"
+  ];
+
+  let currentIndex = 0;
+  function nextQuestion() {
+    currentIndex = (currentIndex + 1) % questions.length;
+    document.getElementById("question").textContent = questions[currentIndex];
+  }
+</script>
+
+</body>
+</html>
